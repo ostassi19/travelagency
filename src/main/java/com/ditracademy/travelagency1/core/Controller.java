@@ -15,7 +15,9 @@ public class Controller {
 
     @PostMapping("/user")
     public void createUser(@RequestBody User user){// userTepository manipule que l'objet user
+       User user1= new User();
         userRepository.save(user);
+        user1.setName("eddddddd");
     }
 
     @GetMapping("/users")
