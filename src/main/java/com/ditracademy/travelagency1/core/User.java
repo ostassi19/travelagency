@@ -14,13 +14,13 @@ import javax.persistence.Id;
 @Setter
 @NoArgsConstructor()
 
-public class User {
+public class User { //classe antité
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
-    private int age;
+    private Integer age;
 
 
 
