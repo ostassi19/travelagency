@@ -1,4 +1,4 @@
-package com.ditracademy.travelagency1.core;
+package com.ditracademy.travelagency1.core.user;
 
 import com.ditracademy.travelagency1.utils.ErrorResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
 public class UserServices { // implémentation des méthodes qui sera impliquer sur le user
     @Autowired
 
     UserRepository userRepository;// liaison entre controller et userrepository
 
-    public ResponseEntity<?> createUser(@RequestBody User user){// userTepository manipule que l'objet user
+    public ResponseEntity<?> createUser( User user){// userTepository manipule que l'objet user
 
         if(user.getName()== null){
             return new ResponseEntity<> (new ErrorResponseModel("User name required  "), HttpStatus.BAD_REQUEST);
@@ -45,12 +46,12 @@ public class UserServices { // implémentation des méthodes qui sera impliquer 
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(@PathVariable int id)// Optional<User>lot contenent des classes
+    public Optional<User> getUserById( int id)// Optional<User>lot contenent des classes
     {
         return userRepository.findById(id);
     }
 
-    public ResponseEntity<?>   getOneUser(@PathVariable int id ){
+    public ResponseEntity<?>   getOneUser( int id ){
         Optional<User> userOptional=userRepository.findById(id);
         User user = userOptional.get();
 
@@ -64,7 +65,7 @@ public class UserServices { // implémentation des méthodes qui sera impliquer 
     }
 
 
-    public ResponseEntity<?> deleteUser(@PathVariable int id)
+    public ResponseEntity<?> deleteUser( int id)
     {
 
         Optional<User> userOptional=userRepository.findById(id);
@@ -82,7 +83,7 @@ public class UserServices { // implémentation des méthodes qui sera impliquer 
     }
 
 
-    public ResponseEntity<?> updateUser(@PathVariable int id, @RequestBody User user)
+    public ResponseEntity<?> updateUser( int id,User user)
     {
         Optional<User> userOptional= userRepository.findById(id);
         User dataBaseUser= userOptional.get();

@@ -1,16 +1,15 @@
-package com.ditracademy.travelagency1.core;
+package com.ditracademy.travelagency1.core.user;
 
-import com.ditracademy.travelagency1.utils.ErrorResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 
-public class Controller { // routage entre les méthodes et les requettes.
+public class UserController { // routage entre les méthodes et les requettes.
 
     @Autowired
     UserRepository userRepository;// liaison entre controller et userrepository
