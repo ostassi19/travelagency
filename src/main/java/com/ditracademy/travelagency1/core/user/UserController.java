@@ -29,12 +29,6 @@ public class UserController { // routage entre les méthodes et les requettes.
     }
 
 
-    @GetMapping("/userid/{id}")
-    public Optional<User> getUserById(@PathVariable int id)// Optional<User>lot contenent des classes
-    {
-        return userServices.getUserById(id);
-    }
-
 
     @GetMapping("user/{id}")
     public ResponseEntity<?>   getOneUser(@PathVariable int id ){

@@ -1,12 +1,10 @@
 package com.ditracademy.travelagency1.core.destination;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
 
+@RestController
 public class DestinationController {
 
 
@@ -25,9 +23,6 @@ public class DestinationController {
     }
 
 
-
-
-
     @GetMapping("destination/{id}")
     public ResponseEntity<?>   getOneDestination(@PathVariable int id ){
 
@@ -35,14 +30,11 @@ public class DestinationController {
     }
 
 
-
     @DeleteMapping("/destination/{id}")
     public ResponseEntity<?> deleteDestination(@PathVariable int id)
     {
         return destinationServices.deleteDestination(id);
     }
-
-
 
 
     @PutMapping("destintion/{id}")

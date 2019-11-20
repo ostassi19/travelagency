@@ -1,13 +1,10 @@
 package com.ditracademy.travelagency1.core.voyage;
-
-import com.ditracademy.travelagency1.core.destination.Destination;
-import com.ditracademy.travelagency1.core.destination.DestinationServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
+
+@RestController
 
 public class VoyageController {
 
@@ -39,5 +36,10 @@ public class VoyageController {
     @PutMapping("voyage/{id}")
     public ResponseEntity<?> updateVoyage(@PathVariable int id, @RequestBody Voyage voyage) {
         return voyageServices.updateVoyage(id,voyage);
+    }
+    @PutMapping("voyageByPrice")
+    public  ResponseEntity<?> getVoyagesByPrice(@RequestParam Float min, @RequestParam Integer max)
+    {
+        return voyageServices.getVoyagesByPrice(min,max);
     }
 }

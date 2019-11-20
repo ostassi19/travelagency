@@ -11,4 +11,5 @@ public interface UserRepository extends JpaRepository<User,Integer>
     //jpa internidiaire entre repository et hibernate
 {
         List<User> findAllByAgeIsLessThan(int age);// création d'une requette spécialisée
+        List<User> findAllByNameAndIdGreaterThanEqual(String name, int id);
 }
