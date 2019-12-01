@@ -6,6 +6,8 @@ import com.ditracademy.travelagency1.utils.Audible;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,6 +16,8 @@ import java.util.Date;
 @Getter// lombok génère les getter setter et noarg
 @Setter
 @NoArgsConstructor()
+@Where(clause ="deleted=false ")
+@SQLDelete(sql =" update voyage set deleted = true where id =?")
 
 public class Voyage extends Audible { //classe antité
     @Id
@@ -25,8 +29,9 @@ public class Voyage extends Audible { //classe antité
     private Integer nbPlaces;
     private Float prix;
     private Date date;
+    private boolean deleted=false;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
     private Destination destination;
 
 

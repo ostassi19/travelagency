@@ -43,9 +43,4 @@ public class DestinationController {
         return destinationServices.updateDestination(id,destination);
     }
 
-
-
-
-
-
 }

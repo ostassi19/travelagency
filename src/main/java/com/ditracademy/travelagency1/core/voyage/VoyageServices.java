@@ -23,14 +23,14 @@ public class VoyageServices {
 
     public ResponseEntity<?> createVoyage( Voyage voyage) {
 
-        Optional<Destination> destinationOptional = destinationRepository.findById(voyage.getDestination().getId());
+       /* Optional<Destination> destinationOptional = destinationRepository.findById(voyage.getDestination().getId());
         if(! destinationOptional.isPresent()) {
             ErrorResponseModel errorResponseModel = new ErrorResponseModel ("destination not found");
             return new ResponseEntity<>(errorResponseModel,HttpStatus.BAD_REQUEST);
         }
 
         voyage.setDestination(destinationOptional.get());// importer toute les attributs de la base à partir de l'id
-
+*/
         voyage=  voyageRepository.save(voyage);
         return new ResponseEntity<>(voyage, HttpStatus.OK);
     }
